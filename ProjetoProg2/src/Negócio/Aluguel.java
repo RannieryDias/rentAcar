@@ -11,7 +11,7 @@ public class Aluguel {
 
 	public Aluguel() {
 		
-		cliente.setNome = te;
+		cliente.setNom = te;
 		this.dataAluguel = dataAluguel;
 		this.dataDevolucao = dataDevolucao;
 		this.valor = valor;
