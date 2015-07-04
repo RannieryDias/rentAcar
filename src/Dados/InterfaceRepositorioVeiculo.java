@@ -1,7 +1,7 @@
-package Dados;
+package dados;
 
-import Exceptions.VeiculoNaoExisteException;
 import Negocio.bean.Veiculo;
+import exceptions.VeiculoNaoExisteException;
 
 public interface InterfaceRepositorioVeiculo 
 {

@@ -1,10 +1,10 @@
-package Dados;
+package dados;
 
 import java.util.List;
 
-import Exceptions.LocacaoNaoExisteException;
-import Exceptions.LocacoesNaoCadastradasException;
 import Negocio.bean.Locacao;
+import exceptions.LocacaoNaoExisteException;
+import exceptions.LocacoesNaoCadastradasException;
 
 public interface InterfaceRepositorioLocacao 
 {

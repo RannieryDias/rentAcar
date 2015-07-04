@@ -1,4 +1,4 @@
-package Exceptions;
+package exceptions;
 
 public class ClienteJaExisteException  extends Exception{
 	public ClienteJaExisteException(String cpf) {

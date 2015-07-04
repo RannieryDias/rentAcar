@@ -1,4 +1,4 @@
-package Exceptions;
+package exceptions;
 
 public class LocacaoPendenteException extends Exception
 {

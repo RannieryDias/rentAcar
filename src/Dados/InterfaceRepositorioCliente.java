@@ -1,11 +1,11 @@
-package Dados;
+package dados;
 
 import java.util.List;
 
-import Exceptions.ClienteJaExisteException;
-import Exceptions.ClienteNaoExisteException;
-import Exceptions.ClientesNaoCadastradosException;
 import Negocio.bean.Cliente;
+import exceptions.ClienteJaExisteException;
+import exceptions.ClienteNaoExisteException;
+import exceptions.ClientesNaoCadastradosException;
 
 public interface InterfaceRepositorioCliente 
 {

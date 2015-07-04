@@ -1,47 +1,27 @@
 package Negocio;
 
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-
-
-
-
-
-
-
-
-
 
 import org.joda.time.DateTime;
 import org.joda.time.Days;
 
-
-
-
-
-
-
-
-
-
-
-
-
-import Negocio.bean.*;
-import Dados.RepositorioLocacao;
-import Exceptions.AluguelComMultaInexistenteException;
-import Exceptions.ClienteJaExisteException;
-import Exceptions.ClienteNaoExisteException;
-import Exceptions.EstacaoNaoExisteException;
-import Exceptions.LocacaoNaoExisteException;
-import Exceptions.LocacaoPendenteException;
-import Exceptions.LocacoesNaoCadastradasException;
-import Exceptions.RepositorioException;
-import Exceptions.VeiculoAlugadoException;
-import Exceptions.VeiculoNaoExisteException;
+import Negocio.bean.Cliente;
+import Negocio.bean.Estacao;
+import Negocio.bean.Locacao;
+import Negocio.bean.Veiculo;
+import dados.RepositorioLocacao;
+import exceptions.AluguelComMultaInexistenteException;
+import exceptions.ClienteJaExisteException;
+import exceptions.ClienteNaoExisteException;
+import exceptions.EstacaoNaoExisteException;
+import exceptions.LocacaoNaoExisteException;
+import exceptions.LocacaoPendenteException;
+import exceptions.LocacoesNaoCadastradasException;
+import exceptions.RepositorioException;
+import exceptions.VeiculoAlugadoException;
+import exceptions.VeiculoNaoExisteException;
 
 public class ControladorLocacao 
 {

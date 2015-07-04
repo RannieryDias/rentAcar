@@ -1,20 +1,11 @@
 package Negocio;
 
-import java.util.ArrayList;
-import java.util.List;
-
-
-
-
-
-
-import Dados.RepositorioEstacao;
-import Exceptions.ClienteJaExisteException;
-import Exceptions.EstacaoJaExisteException;
-import Exceptions.EstacaoNaoExisteException;
-import Exceptions.RepositorioException;
 import Negocio.bean.Estacao;
-import Negocio.bean.Veiculo;
+import dados.RepositorioEstacao;
+import exceptions.ClienteJaExisteException;
+import exceptions.EstacaoJaExisteException;
+import exceptions.EstacaoNaoExisteException;
+import exceptions.RepositorioException;
 
 public class ControladorEstacao 
 {

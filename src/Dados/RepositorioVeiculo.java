@@ -1,4 +1,4 @@
-package Dados;
+package dados;
 import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
@@ -9,12 +9,8 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import Exceptions.ClienteJaExisteException;
-import Exceptions.EstacaoNaoExisteException;
-import Exceptions.VeiculoNaoExisteException;
-import Negocio.bean.Estacao;
-import Negocio.bean.Locacao;
 import Negocio.bean.Veiculo;
+import exceptions.VeiculoNaoExisteException;
 
 public class RepositorioVeiculo  implements InterfaceRepositorioVeiculo
 {

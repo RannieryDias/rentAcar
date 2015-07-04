@@ -1,11 +1,11 @@
-package GUI;
+package gui;
 
 import javax.swing.JOptionPane;
 
-import Exceptions.ClienteJaExisteException;
-import Exceptions.InicializacaoSistemaException;
-import Exceptions.RepositorioException;
-import Exceptions.VeiculoNaoExisteException;
+import exceptions.ClienteJaExisteException;
+import exceptions.InicializacaoSistemaException;
+import exceptions.RepositorioException;
+import exceptions.VeiculoNaoExisteException;
 import Negocio.Fachada;
 import Negocio.InterfaceFachada;
 

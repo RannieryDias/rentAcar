@@ -1,4 +1,4 @@
-package Dados;
+package dados;
 
 import java.io.EOFException;
 import java.io.File;
@@ -10,13 +10,10 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
-
-
-
-import Exceptions.*;
 import Negocio.bean.Estacao;
+import exceptions.ClienteJaExisteException;
+import exceptions.EstacaoNaoExisteException;
+import exceptions.RepositorioException;
 
 public class RepositorioEstacao
 {

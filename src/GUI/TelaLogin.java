@@ -1,4 +1,4 @@
-package GUI;
+package gui;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -19,6 +19,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JRadioButton;
 import javax.swing.JComboBox;
+import javax.swing.ImageIcon;
 
 public class TelaLogin extends JFrame {
 
@@ -29,7 +30,7 @@ public class TelaLogin extends JFrame {
 
 	public TelaLogin() {
 		setResizable(false);
-		setTitle("rentAcar - Login");
+		setTitle("Login - rentAcar ");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 689, 445);
 		contentPane = new JPanel();
@@ -67,7 +68,7 @@ public class TelaLogin extends JFrame {
 		comboBoxUsuario.addItem("Novo Cliente");
 		comboBoxUsuario.addItem("Cliente");
 		comboBoxUsuario.addItem("Administrador");
-		comboBoxUsuario.setBounds(290, 231, 99, 20);
+		comboBoxUsuario.setBounds(290, 231, 119, 20);
 		contentPane.add(comboBoxUsuario);
 		
 		
@@ -102,14 +103,15 @@ public class TelaLogin extends JFrame {
 		String adm = "Admin";
 		String pass = "admin";
 		if(tipo == 0){
-			
+			TelaCadastroUsuario cadUser = new TelaCadastroUsuario();
+			cadUser.show();
 		}else if(usuario.equals(adm) && senha.equals(pass) && tipo == 1){
 			
 			dispose();
 		}else if(usuario.equals(adm) && senha.equals(pass) && tipo == 2){
 			
-			DesktopAdmin JDesktop = new DesktopAdmin();
-			JDesktop.show();
+			DesktopAdmin adminDesktop = new DesktopAdmin();
+			adminDesktop.show();
 			dispose();
 		}
 		else{
