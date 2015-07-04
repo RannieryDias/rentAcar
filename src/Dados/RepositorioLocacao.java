@@ -1,4 +1,4 @@
-package dados;
+package Dados;
 
 import java.io.EOFException;
 import java.io.File;
@@ -10,11 +10,15 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
+
+import Exceptions.ClienteJaExisteException;
+import Exceptions.LocacaoNaoExisteException;
+import Exceptions.LocacoesNaoCadastradasException;
+import Exceptions.RepositorioException;
 import Negocio.bean.Locacao;
-import exceptions.ClienteJaExisteException;
-import exceptions.LocacaoNaoExisteException;
-import exceptions.LocacoesNaoCadastradasException;
-import exceptions.RepositorioException;
+import Negocio.bean.Veiculo;
 
 public class RepositorioLocacao implements InterfaceRepositorioLocacao
 {

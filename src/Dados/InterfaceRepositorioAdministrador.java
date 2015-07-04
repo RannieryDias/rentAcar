@@ -1,8 +1,8 @@
-package dados;
+package Dados;
 
+import Exceptions.AdministradorNaoExisteException;
+import Exceptions.RepositorioException;
 import Negocio.bean.Administrador;
-import exceptions.AdministradorNaoExisteException;
-import exceptions.RepositorioException;
 
 public interface InterfaceRepositorioAdministrador 
 {

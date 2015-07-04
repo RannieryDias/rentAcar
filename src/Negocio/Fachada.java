@@ -3,27 +3,29 @@ package Negocio;
 import java.util.Calendar;
 import java.util.List;
 
+import Exceptions.AdministradorJaExistenteException;
+import Exceptions.AdministradorNaoExisteException;
+import Exceptions.AluguelComMultaInexistenteException;
+import Exceptions.ClienteJaExisteException;
+import Exceptions.ClienteNaoExisteException;
+import Exceptions.ClientesNaoCadastradosException;
+import Exceptions.EstacaoJaExisteException;
+import Exceptions.EstacaoNaoExisteException;
+import Exceptions.EstacoesNaoExistemException;
+import Exceptions.InicializacaoSistemaException;
+import Exceptions.LocacaoNaoExisteException;
+import Exceptions.LocacaoPendenteException;
+import Exceptions.LocacoesNaoCadastradasException;
+import Exceptions.RepositorioException;
+import Exceptions.VeiculoAlugadoException;
+import Exceptions.VeiculoJaExisteException;
+import Exceptions.VeiculoNaoExisteException;
+import Exceptions.VeiculosAlugadosException;
 import Negocio.bean.Administrador;
 import Negocio.bean.Cliente;
 import Negocio.bean.Estacao;
 import Negocio.bean.Locacao;
 import Negocio.bean.Veiculo;
-import exceptions.AdministradorJaExistenteException;
-import exceptions.AdministradorNaoExisteException;
-import exceptions.AluguelComMultaInexistenteException;
-import exceptions.ClienteJaExisteException;
-import exceptions.ClienteNaoExisteException;
-import exceptions.ClientesNaoCadastradosException;
-import exceptions.EstacaoJaExisteException;
-import exceptions.EstacaoNaoExisteException;
-import exceptions.InicializacaoSistemaException;
-import exceptions.LocacaoNaoExisteException;
-import exceptions.LocacaoPendenteException;
-import exceptions.LocacoesNaoCadastradasException;
-import exceptions.RepositorioException;
-import exceptions.VeiculoAlugadoException;
-import exceptions.VeiculoJaExisteException;
-import exceptions.VeiculoNaoExisteException;
 
 
 public class Fachada implements InterfaceFachada
@@ -36,7 +38,7 @@ public class Fachada implements InterfaceFachada
  
   public static Fachada instance;
 
-  public static Fachada getInstance() throws InicializacaoSistemaException, ClienteJaExisteException, VeiculoNaoExisteException 
+  public static Fachada getInstance() throws InicializacaoSistemaException,ClienteJaExisteException,RepositorioException,VeiculoNaoExisteException
   {
 	if (Fachada.instance == null)
 	{
@@ -48,6 +50,10 @@ public class Fachada implements InterfaceFachada
 		{
 			e.printStackTrace();
 			throw new InicializacaoSistemaException();
+		}
+		catch (VeiculoNaoExisteException e) 
+		{
+			e.printStackTrace();
 		}
 	}
 	return Fachada.instance;
@@ -197,6 +203,10 @@ public class Fachada implements InterfaceFachada
   {
 	  return this.veiculo.procurar(placa);
   }
+  public List<Veiculo> listarVeiculosDisponiveis() throws VeiculosAlugadosException
+  {
+	  return this.veiculo.listarVeiculosDisponiveis();
+  }
   public void RemoverVeiculo(String placa)throws VeiculoNaoExisteException, EstacaoNaoExisteException
   {
 	  this.veiculo.removercarro(placa);
@@ -206,7 +216,7 @@ public class Fachada implements InterfaceFachada
 	  return this.veiculo.existe(placa);
   }
 
-  public void cadastrarEstacao(Estacao estacao, int capacidade)throws RepositorioException,EstacaoJaExisteException,EstacaoNaoExisteException 
+  public void cadastrarEstacao(Estacao estacao, int capacidade)throws RepositorioException,EstacaoJaExisteException,EstacaoNaoExisteException, EstacoesNaoExistemException 
   {
 	this.estacao.cadastrar(estacao, capacidade);
   }
@@ -215,10 +225,18 @@ public class Fachada implements InterfaceFachada
   {
 	return this.estacao.procurar(id);
   }
+  public Estacao procurarEstacao(String s) throws EstacaoNaoExisteException 
+  {
+	return this.estacao.procurar(s);
+  }
 
   public void alterarEstacao(Estacao estacao) throws RepositorioException,EstacaoNaoExisteException 
   {
 	this.estacao.alterar(estacao);
+  }
+  public List<Estacao> ListarEstacoes()throws EstacoesNaoExistemException
+  {
+	  return this.estacao.ListarEstacoes();
   }
 
   public void excluirEstacao(int id) throws RepositorioException,EstacaoNaoExisteException 

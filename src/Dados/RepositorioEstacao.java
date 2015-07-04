@@ -1,4 +1,4 @@
-package dados;
+package Dados;
 
 import java.io.EOFException;
 import java.io.File;
@@ -10,10 +10,17 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
+
+
+
+
+
+
+import Exceptions.*;
+import Negocio.bean.Cliente;
 import Negocio.bean.Estacao;
-import exceptions.ClienteJaExisteException;
-import exceptions.EstacaoNaoExisteException;
-import exceptions.RepositorioException;
 
 public class RepositorioEstacao
 {
@@ -127,9 +134,20 @@ public class RepositorioEstacao
 			{
 				indice = i;
 			}
-			// tratar um exceção do tipo se o obj não foi encontrada
 		}
 		return indice;
+	}
+	public Estacao ProcurarEstacao(String Nome)
+	{
+		Estacao e = null;
+
+		for (int i = 0; i < this.estacoes.size(); i++) {
+			if (this.estacoes.get(i).getNomeEstacao().equals(Nome)) {
+				 e = estacoes.get(i);
+			}
+			
+		}
+		return e; 
 	}
 	private int ProcurarIndice(int id)
 	{
@@ -160,6 +178,7 @@ public class RepositorioEstacao
 		
 	}
 	
+	
 	public boolean existe(int id) 
 	{
 		int indice = this.ProcurarIndice(id);
@@ -180,6 +199,7 @@ public class RepositorioEstacao
 		return e;
 		 
 	}
+	
 	public void alterarEstacao(Estacao estacao) throws RepositorioException,EstacaoNaoExisteException 
 	{
        int indice = this.ProcurarIndice(estacao.getCod());
@@ -188,5 +208,17 @@ public class RepositorioEstacao
        this.estacoes.set(indice, estacao);
        this.SalvarArquivo();
     }
+	public List<Estacao> ListarEstacoes() throws EstacoesNaoExistemException 
+	{
+		if(this.estacoes.isEmpty())
+		{
+			throw new EstacoesNaoExistemException();
+		}	
+		else
+		{
+			return this.estacoes;	
+		}
+		
+	}
 
 }

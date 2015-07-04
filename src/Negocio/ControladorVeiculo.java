@@ -1,13 +1,16 @@
 package Negocio;
 
 
+import java.util.List;
+
+import Dados.RepositorioEstacao;
+import Dados.RepositorioVeiculo;
+import Exceptions.EstacaoNaoExisteException;
+import Exceptions.VeiculoJaExisteException;
+import Exceptions.VeiculoNaoExisteException;
+import Exceptions.VeiculosAlugadosException;
 import Negocio.bean.Estacao;
 import Negocio.bean.Veiculo;
-import dados.RepositorioEstacao;
-import dados.RepositorioVeiculo;
-import exceptions.EstacaoNaoExisteException;
-import exceptions.VeiculoJaExisteException;
-import exceptions.VeiculoNaoExisteException;
 
 
 
@@ -56,4 +59,9 @@ public class ControladorVeiculo
 	public boolean existe(String placa) throws VeiculoNaoExisteException {
 		return this.repositorio.existe(placa);
 	}
+	public List<Veiculo> listarVeiculosDisponiveis() throws VeiculosAlugadosException
+	{
+		return this.repositorio.ListarVeiculosDisponiveis();
+	}
 }
+

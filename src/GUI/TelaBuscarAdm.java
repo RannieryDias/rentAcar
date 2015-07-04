@@ -71,6 +71,7 @@ public class TelaBuscarAdm extends JFrame {
 						Negocio.Fachada fachada = new Negocio.Fachada();
 						try{ 
 						fachada.procurarAdministrador(cpf);
+						
 						}catch (AdministradorNaoExisteException e) {
 							JOptionPane.showMessageDialog(null, "Administrador não encontrado");
 							e.printStackTrace();
@@ -86,9 +87,10 @@ public class TelaBuscarAdm extends JFrame {
 			btnBuscar.setBounds(240, 22, 89, 23);
 			contentPane.add(btnBuscar);
 			
-			JTextPane textPane = new JTextPane();
-			textPane.setBounds(42, 64, 359, 162);
-			contentPane.add(textPane);
+			JTextPane txtpnOl = new JTextPane();
+			txtpnOl.setText("ol\u00E1");
+			txtpnOl.setBounds(42, 64, 359, 162);
+			contentPane.add(txtpnOl);
 			
 			
 			

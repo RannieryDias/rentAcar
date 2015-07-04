@@ -1,0 +1,1315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="RentACar">
+  <ClassDiagramComponents>
+    <Interface name="InterfaceRepositorioAdministrador" package="dados" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Methods>
+        <Method name="cadastrarAdministrador" returnType="void" visibility="public">
+          <Argument type="Administrador" name="adm"/>
+        </Method>
+        <Method name="procurarAdministrador" returnType="Administrador" visibility="public">
+          <Argument type="String" name="cpf"/>
+        </Method>
+        <Method name="alterarAdministrador" returnType="void" visibility="public">
+          <Argument type="Administrador" name="adm"/>
+        </Method>
+        <Method name="existe" returnType="boolean" visibility="public">
+          <Argument type="String" name="cpf"/>
+        </Method>
+        <Method name="excluirAdministrador" returnType="void" visibility="public">
+          <Argument type="String" name="cpf"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="InterfaceRepositorioCliente" package="dados" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Methods>
+        <Method name="cadastrarCliente" returnType="void" visibility="public">
+          <Argument type="Cliente" name="c"/>
+        </Method>
+        <Method name="procurarCliente" returnType="Cliente" visibility="public">
+          <Argument type="String" name="CPF"/>
+        </Method>
+        <Method name="removerCliente" returnType="void" visibility="public">
+          <Argument type="String" name="CPF"/>
+        </Method>
+        <Method name="ListarClientes" returnType="List&lt;Cliente&gt;" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="InterfaceRepositorioEstacao" package="dados" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Methods>
+        <Method name="cadastrarEstacao" returnType="void" visibility="public">
+          <Argument type="Estacao" name="e"/>
+        </Method>
+        <Method name="procurar" returnType="Estacao" visibility="public">
+          <Argument type="String" name="nomeEstacao"/>
+        </Method>
+        <Method name="removerEstacao" returnType="void" visibility="public">
+          <Argument type="String" name="nomeEstacao"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="InterfaceRepositorioLocacao" package="dados" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Methods>
+        <Method name="Cadastrar" returnType="void" visibility="public">
+          <Argument type="Locacao" name="l"/>
+        </Method>
+        <Method name="procurarLocacao" returnType="Locacao" visibility="public">
+          <Argument type="Integer" name="idLocacao"/>
+        </Method>
+        <Method name="remover" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="existe" returnType="boolean" visibility="package">
+          <Argument type="String" name="cpf"/>
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="exibirALuguelComMulta" returnType="List&lt;Locacao&gt;" visibility="public"/>
+        <Method name="exibirALuguelFinalizado" returnType="List&lt;Locacao&gt;" visibility="public"/>
+        <Method name="exibirALugueisAtivos" returnType="List&lt;Locacao&gt;" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="InterfaceRepositorioVeiculo" package="dados" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Methods>
+        <Method name="cadastrar" returnType="void" visibility="public">
+          <Argument type="Veiculo" name="v"/>
+        </Method>
+        <Method name="procurar" returnType="Veiculo" visibility="public">
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="removerCarro" returnType="void" visibility="public">
+          <Argument type="String" name="placa"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Class name="RepositorioAdministrador" package="dados" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields>
+        <Field name="administradores" type="List&lt;Administrador&gt;" visibility="private"/>
+        <Field name="ARQUIVO" type="String" visibility="private" isFinal="true"/>
+        <Field name="arquivoAdm" type="File" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="lerArquivo" returnType="void" visibility="private"/>
+        <Method name="gravarArquivo" returnType="void" visibility="private"/>
+        <Method name="cadastrarAdministrador" returnType="void" visibility="public">
+          <Argument type="Administrador" name="adm"/>
+        </Method>
+        <Method name="procurarAdministrador" returnType="Administrador" visibility="public">
+          <Argument type="String" name="cpf"/>
+        </Method>
+        <Method name="alterarAdministrador" returnType="void" visibility="public">
+          <Argument type="Administrador" name="adm"/>
+        </Method>
+        <Method name="existe" returnType="boolean" visibility="public">
+          <Argument type="String" name="cpf"/>
+        </Method>
+        <Method name="excluirAdministrador" returnType="void" visibility="public">
+          <Argument type="String" name="cpf"/>
+        </Method>
+        <Method name="obterIndice" returnType="int" visibility="private">
+          <Argument type="String" name="cpf"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="RepositorioCliente" package="dados" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields>
+        <Field name="clientes" type="List&lt;Cliente&gt;" visibility="private"/>
+        <Field name="NomeArquivo" type="String" visibility="private" isFinal="true"/>
+        <Field name="arquivoClientes" type="File" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="lerArquivo" returnType="void" visibility="private"/>
+        <Method name="SalvarArquivo" returnType="void" visibility="private"/>
+        <Method name="cadastrarCliente" returnType="void" visibility="public">
+          <Argument type="Cliente" name="c"/>
+        </Method>
+        <Method name="ProcurarIndice" returnType="int" visibility="private">
+          <Argument type="String" name="CPF"/>
+        </Method>
+        <Method name="procurarCliente" returnType="Cliente" visibility="public">
+          <Argument type="String" name="CPF"/>
+        </Method>
+        <Method name="removerCliente" returnType="void" visibility="public">
+          <Argument type="String" name="CPF"/>
+        </Method>
+        <Method name="existe" returnType="boolean" visibility="public">
+          <Argument type="String" name="cpf"/>
+        </Method>
+        <Method name="alterarCliente" returnType="void" visibility="public"/>
+        <Method name="ListarClientes" returnType="List&lt;Cliente&gt;" visibility="public"/>
+        <Method name="alterarCliente" returnType="void" visibility="public">
+          <Argument type="Cliente" name="cliente"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="RepositorioEstacao" package="dados" visibility="public" xPosition="2120.0" yPosition="20.0">
+      <Fields>
+        <Field name="estacoes" type="List&lt;Estacao&gt;" visibility="private"/>
+        <Field name="NomeArquivo" type="String" visibility="private" isFinal="true"/>
+        <Field name="arquivoEstacoes" type="File" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="lerArquivo" returnType="void" visibility="private"/>
+        <Method name="SalvarArquivo" returnType="void" visibility="private"/>
+        <Method name="cadastrarEstacao" returnType="void" visibility="public">
+          <Argument type="Estacao" name="e"/>
+        </Method>
+        <Method name="ProcurarIndice" returnType="int" visibility="private">
+          <Argument type="String" name="NomeEstacao"/>
+        </Method>
+        <Method name="ProcurarIndice" returnType="int" visibility="private">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="procurar" returnType="Estacao" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="removerEstacao" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="existe" returnType="boolean" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="retornarEstacao" returnType="Estacao" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="alterarEstacao" returnType="void" visibility="public">
+          <Argument type="Estacao" name="estacao"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="RepositorioLocacao" package="dados" visibility="public" xPosition="20.0" yPosition="420.0">
+      <Fields>
+        <Field name="locacoes" type="List&lt;Locacao&gt;" visibility="private"/>
+        <Field name="NomeArquivo" type="String" visibility="private" isFinal="true"/>
+        <Field name="arquivoLocacoes" type="File" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="lerArquivo" returnType="void" visibility="private"/>
+        <Method name="SalvarArquivo" returnType="void" visibility="private"/>
+        <Method name="Cadastrar" returnType="void" visibility="public">
+          <Argument type="Locacao" name="l"/>
+        </Method>
+        <Method name="ProcurarIndice" returnType="int" visibility="private">
+          <Argument type="int" name="Id"/>
+        </Method>
+        <Method name="ProcurarIndice" returnType="int" visibility="private">
+          <Argument type="String" name="CPF"/>
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="ProcurarIndiceDevolucao" returnType="int" visibility="private">
+          <Argument type="String" name="cpf"/>
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="ProcurarIndiceLocacaoFinalizada" returnType="int" visibility="private">
+          <Argument type="String" name="CPF"/>
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="ProcurarIndiceLocacaoFinalizada" returnType="int" visibility="private">
+          <Argument type="Locacao" name="l"/>
+        </Method>
+        <Method name="procurarLocacao" returnType="Locacao" visibility="public">
+          <Argument type="Integer" name="idLocacao"/>
+        </Method>
+        <Method name="procurarLocacao" returnType="Locacao" visibility="public">
+          <Argument type="String" name="Cpf"/>
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="procurarAluguelDevolucao" returnType="Locacao" visibility="public">
+          <Argument type="String" name="cpf"/>
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="procurarAluguelFinalizado" returnType="Locacao" visibility="public">
+          <Argument type="Locacao" name="l"/>
+        </Method>
+        <Method name="procurarAluguelFinalizado" returnType="Locacao" visibility="public">
+          <Argument type="String" name="Cpf"/>
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="remover" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="remover" returnType="void" visibility="public">
+          <Argument type="String" name="cpf"/>
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="existe" returnType="boolean" visibility="public">
+          <Argument type="String" name="cpf"/>
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="existeAluguelDevolucao" returnType="boolean" visibility="public">
+          <Argument type="String" name="cpf"/>
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="exibirALugueisAtivos" returnType="List&lt;Locacao&gt;" visibility="public"/>
+        <Method name="exibirALuguelFinalizado" returnType="List&lt;Locacao&gt;" visibility="public"/>
+        <Method name="exibirALuguelComMulta" returnType="List&lt;Locacao&gt;" visibility="public"/>
+        <Method name="alterarAluguel" returnType="void" visibility="public">
+          <Argument type="Locacao" name="aluguel"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="RepositorioVeiculo" package="dados" visibility="public" xPosition="320.0" yPosition="420.0">
+      <Fields>
+        <Field name="veiculos" type="List&lt;Veiculo&gt;" visibility="private"/>
+        <Field name="NomeArquivo" type="String" visibility="private" isFinal="true"/>
+        <Field name="arquivoVeiculos" type="File" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="lerArquivo" returnType="void" visibility="private"/>
+        <Method name="SalvarArquivo" returnType="void" visibility="private"/>
+        <Method name="cadastrar" returnType="void" visibility="public">
+          <Argument type="Veiculo" name="v"/>
+        </Method>
+        <Method name="ProcurarIndice" returnType="int" visibility="private">
+          <Argument type="String" name="Placa"/>
+        </Method>
+        <Method name="procurar" returnType="Veiculo" visibility="public">
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="removerCarro" returnType="void" visibility="public">
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="existe" returnType="boolean" visibility="public">
+          <Argument type="String" name="placa"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="AdministradorJaExistenteException" package="exceptions" visibility="public" xPosition="620.0" yPosition="420.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="cpf"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="AdministradorNaoExisteException" package="exceptions" visibility="public" xPosition="920.0" yPosition="420.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="cpf"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="AluguelComMultaInexistenteException" package="exceptions" visibility="public" xPosition="1220.0" yPosition="420.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="ClienteJaCadastradoException" package="exceptions" visibility="public" xPosition="1520.0" yPosition="420.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="cpf"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="ClienteJaExisteException" package="exceptions" visibility="public" xPosition="1820.0" yPosition="420.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="cpf"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="ClienteNaoExisteException" package="exceptions" visibility="public" xPosition="2120.0" yPosition="420.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="Cpf"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="ClientesNaoCadastradosException" package="exceptions" visibility="public" xPosition="20.0" yPosition="820.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="EstacaoJaExisteException" package="exceptions" visibility="public" xPosition="320.0" yPosition="820.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="EstacaoNaoExisteException" package="exceptions" visibility="public" xPosition="620.0" yPosition="820.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="id"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="InicializacaoException" package="exceptions" visibility="public" xPosition="920.0" yPosition="820.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="InicializacaoSistemaException" package="exceptions" visibility="public" xPosition="1220.0" yPosition="820.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="LocacaoNaoExisteException" package="exceptions" visibility="public" xPosition="1520.0" yPosition="820.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="IdLocacao"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="LocacaoPendenteException" package="exceptions" visibility="public" xPosition="1820.0" yPosition="820.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="LocacoesNaoCadastradasException" package="exceptions" visibility="public" xPosition="2120.0" yPosition="820.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="menssagem"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="RepositorioException" package="exceptions" visibility="public" xPosition="20.0" yPosition="1220.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="message"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="VeiculoAlugadoException" package="exceptions" visibility="public" xPosition="320.0" yPosition="1220.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="placa"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="VeiculoJaExisteException" package="exceptions" visibility="public" xPosition="620.0" yPosition="1220.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="VeiculoNaoExisteException" package="exceptions" visibility="public" xPosition="920.0" yPosition="1220.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="placa"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="DesktopAdmin" package="gui" visibility="public" xPosition="1220.0" yPosition="1220.0">
+      <Fields>
+        <Field name="contentPane" type="JPanel" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Main" package="gui" visibility="public" xPosition="1520.0" yPosition="1220.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+        <Method name="inicializarSistema" returnType="void" visibility="public" isStatic="true"/>
+      </Methods>
+    </Class>
+    <Class name="TelaBuscarAdm" package="gui" visibility="public" xPosition="1820.0" yPosition="1220.0">
+      <Fields>
+        <Field name="contentPane" type="JPanel" visibility="private"/>
+        <Field name="textField" type="JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="TelaBuscarCliente" package="gui" visibility="public" xPosition="2120.0" yPosition="1220.0">
+      <Fields>
+        <Field name="contentPane" type="JPanel" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="TelaCadastroAdm" package="gui" visibility="public" xPosition="20.0" yPosition="1620.0">
+      <Fields>
+        <Field name="contentPane" type="JPanel" visibility="private"/>
+        <Field name="nomeField" type="JTextField" visibility="private"/>
+        <Field name="telefoneField" type="JTextField" visibility="private"/>
+        <Field name="celularField" type="JTextField" visibility="private"/>
+        <Field name="cepField" type="JTextField" visibility="private"/>
+        <Field name="passwordField1" type="JPasswordField" visibility="private"/>
+        <Field name="passwordField2" type="JPasswordField" visibility="private"/>
+        <Field name="usuarioField" type="JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="TelaCadastroUsuario" package="gui" visibility="public" xPosition="320.0" yPosition="1620.0">
+      <Fields>
+        <Field name="contentPane" type="JPanel" visibility="private"/>
+        <Field name="nomeField" type="JTextField" visibility="private"/>
+        <Field name="telefoneField" type="JTextField" visibility="private"/>
+        <Field name="celularField" type="JTextField" visibility="private"/>
+        <Field name="cepField" type="JTextField" visibility="private"/>
+        <Field name="estadoField" type="JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="TelaLogin" package="gui" visibility="public" xPosition="620.0" yPosition="1620.0">
+      <Fields>
+        <Field name="contentPane" type="JPanel" visibility="private"/>
+        <Field name="textFieldUsuario" type="JTextField" visibility="private"/>
+        <Field name="textFieldSenha" type="JPasswordField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="login" returnType="void" visibility="public">
+          <Argument type="String" name="usuario"/>
+          <Argument type="String" name="senha"/>
+          <Argument type="int" name="tipo"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Administrador" package="Negocio.bean" visibility="public" xPosition="920.0" yPosition="1620.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="id" type="long" visibility="private"/>
+        <Field name="login" type="String" visibility="private"/>
+        <Field name="senha" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nome"/>
+          <Argument type="String" name="cpf"/>
+          <Argument type="long" name="id"/>
+          <Argument type="String" name="login"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="nome"/>
+          <Argument type="String" name="cpf"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="nome"/>
+          <Argument type="String" name="cpf"/>
+          <Argument type="String" name="login"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="long" name="id"/>
+          <Argument type="String" name="login"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getNome" returnType="String" visibility="public"/>
+        <Method name="setNome" returnType="void" visibility="public">
+          <Argument type="String" name="nome"/>
+        </Method>
+        <Method name="getCpf" returnType="String" visibility="public"/>
+        <Method name="setCpf" returnType="void" visibility="public">
+          <Argument type="String" name="cpf"/>
+        </Method>
+        <Method name="getId" returnType="long" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="long" name="id"/>
+        </Method>
+        <Method name="getLogin" returnType="String" visibility="public"/>
+        <Method name="setLogin" returnType="void" visibility="public">
+          <Argument type="String" name="login"/>
+        </Method>
+        <Method name="getSenha" returnType="String" visibility="public"/>
+        <Method name="setSenha" returnType="void" visibility="public">
+          <Argument type="String" name="senha"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Cliente" package="Negocio.bean" visibility="public" xPosition="1220.0" yPosition="1620.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="pendencia" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nome"/>
+          <Argument type="String" name="cpf"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="String" name="nome"/>
+          <Argument type="String" name="cpf"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getNome" returnType="String" visibility="public"/>
+        <Method name="setNome" returnType="void" visibility="public">
+          <Argument type="String" name="nome"/>
+        </Method>
+        <Method name="getCpf" returnType="String" visibility="public"/>
+        <Method name="setCpf" returnType="void" visibility="public">
+          <Argument type="String" name="cpf"/>
+        </Method>
+        <Method name="getPendencia" returnType="boolean" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Estacao" package="Negocio.bean" visibility="public" xPosition="1520.0" yPosition="1620.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="cod" type="int" visibility="private"/>
+        <Field name="NomeEstacao" type="String" visibility="private"/>
+        <Field name="Capacidade" type="int" visibility="private"/>
+        <Field name="endereco" type="String" visibility="private"/>
+        <Field name="carros" type="Veiculo[]" visibility="private"/>
+        <Field name="proxima" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="NomeEstacao"/>
+          <Argument type="int" name="Capacidade"/>
+          <Argument type="String" name="endereco"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getCod" returnType="int" visibility="public"/>
+        <Method name="setCod" returnType="void" visibility="public">
+          <Argument type="int" name="idEstacao"/>
+        </Method>
+        <Method name="getNomeEstacao" returnType="String" visibility="public"/>
+        <Method name="setNomeEstacao" returnType="void" visibility="public">
+          <Argument type="String" name="nomeEstacao"/>
+        </Method>
+        <Method name="getCarro" returnType="Veiculo" visibility="public">
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="getCarros" returnType="Veiculo[]" visibility="public"/>
+        <Method name="setCarros" returnType="void" visibility="public">
+          <Argument type="Veiculo[]" name="carros"/>
+        </Method>
+        <Method name="getCapacidade" returnType="int" visibility="public"/>
+        <Method name="setCapacidade" returnType="void" visibility="public">
+          <Argument type="int" name="capacidade"/>
+        </Method>
+        <Method name="getEndereco" returnType="String" visibility="public"/>
+        <Method name="setEndereco" returnType="void" visibility="public">
+          <Argument type="String" name="endereco"/>
+        </Method>
+        <Method name="cadastrar" returnType="void" visibility="public">
+          <Argument type="Veiculo" name="c"/>
+        </Method>
+        <Method name="ProcurarIndice" returnType="int" visibility="private">
+          <Argument type="String" name="Placa"/>
+        </Method>
+        <Method name="procurar" returnType="Veiculo" visibility="public">
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="removerVeiculo" returnType="void" visibility="public">
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Locacao" package="Negocio.bean" visibility="public" xPosition="1820.0" yPosition="1620.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="IdLocacao" type="int" visibility="private"/>
+        <Field name="DataInicio" type="Calendar" visibility="private"/>
+        <Field name="DataFim" type="Calendar" visibility="private"/>
+        <Field name="DataEntrega" type="Calendar" visibility="private"/>
+        <Field name="cliente" type="Cliente" visibility="private"/>
+        <Field name="carro" type="Veiculo" visibility="private"/>
+        <Field name="EstacaoInicio" type="Estacao" visibility="private"/>
+        <Field name="EstacaoFim" type="Estacao" visibility="private"/>
+        <Field name="valor" type="float" visibility="private"/>
+        <Field name="multa" type="float" visibility="private"/>
+        <Field name="ativado" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="Calendar" name="dataInicio"/>
+          <Argument type="Calendar" name="dataFim"/>
+          <Argument type="Estacao" name="estacao"/>
+          <Argument type="Cliente" name="cliente"/>
+          <Argument type="Veiculo" name="carro"/>
+          <Argument type="float" name="valor"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="Calendar" name="dataInicio"/>
+          <Argument type="Calendar" name="dataFim"/>
+          <Argument type="Estacao" name="estacao"/>
+          <Argument type="Cliente" name="cliente"/>
+          <Argument type="Veiculo" name="carro"/>
+          <Argument type="float" name="valor"/>
+          <Argument type="Calendar" name="DatadeEntrega"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getIdLocacao" returnType="int" visibility="public"/>
+        <Method name="setIdLocacao" returnType="void" visibility="public">
+          <Argument type="int" name="idLocacao"/>
+        </Method>
+        <Method name="getDataInicio" returnType="Calendar" visibility="public"/>
+        <Method name="setDataInicio" returnType="void" visibility="public">
+          <Argument type="Calendar" name="dataInicio"/>
+        </Method>
+        <Method name="getDataFim" returnType="Calendar" visibility="public"/>
+        <Method name="setDataFim" returnType="void" visibility="public">
+          <Argument type="Calendar" name="dataEntrega"/>
+        </Method>
+        <Method name="getDataEntrega" returnType="Calendar" visibility="public"/>
+        <Method name="setDataEntrega" returnType="void" visibility="public">
+          <Argument type="Calendar" name="dataEntrega"/>
+        </Method>
+        <Method name="getCliente" returnType="Cliente" visibility="public"/>
+        <Method name="setCliente" returnType="void" visibility="public">
+          <Argument type="Cliente" name="cliente"/>
+        </Method>
+        <Method name="getCarro" returnType="Veiculo" visibility="public"/>
+        <Method name="getEstacaoInicio" returnType="Estacao" visibility="public"/>
+        <Method name="setEstacaoInicio" returnType="void" visibility="public">
+          <Argument type="Estacao" name="estacaoInicio"/>
+        </Method>
+        <Method name="setCarro" returnType="void" visibility="public">
+          <Argument type="Veiculo" name="carro"/>
+        </Method>
+        <Method name="getValor" returnType="float" visibility="public"/>
+        <Method name="setValor" returnType="void" visibility="public">
+          <Argument type="float" name="valor"/>
+        </Method>
+        <Method name="getMulta" returnType="float" visibility="public"/>
+        <Method name="setMulta" returnType="void" visibility="public">
+          <Argument type="float" name="multa"/>
+        </Method>
+        <Method name="getAtivado" returnType="boolean" visibility="public"/>
+        <Method name="setAtivado" returnType="void" visibility="public">
+          <Argument type="boolean" name="ativado"/>
+        </Method>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Locacao" name="l"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Usuario" package="Negocio.bean" visibility="public" isAbstract="true" xPosition="2120.0" yPosition="1620.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="nome" type="String" visibility="protected"/>
+        <Field name="cpf" type="String" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nome"/>
+          <Argument type="String" name="cpf"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getNome" returnType="String" visibility="public" isAbstract="true"/>
+        <Method name="setNome" returnType="void" visibility="public" isAbstract="true">
+          <Argument type="String" name="nome"/>
+        </Method>
+        <Method name="getCpf" returnType="String" visibility="public" isAbstract="true"/>
+        <Method name="setCpf" returnType="void" visibility="public" isAbstract="true">
+          <Argument type="String" name="cpf"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Veiculo" package="Negocio.bean" visibility="public" xPosition="20.0" yPosition="2020.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="placa" type="String" visibility="private"/>
+        <Field name="modelo" type="String" visibility="private"/>
+        <Field name="cor" type="String" visibility="private"/>
+        <Field name="motor" type="float" visibility="private"/>
+        <Field name="Estacaoatual" type="int" visibility="private"/>
+        <Field name="valorLocacao" type="Float" visibility="private"/>
+        <Field name="alugado" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="placa"/>
+          <Argument type="String" name="modelo"/>
+          <Argument type="String" name="cor"/>
+          <Argument type="Float" name="valorLocacao"/>
+          <Argument type="int" name="EstacaoAtual"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getPlaca" returnType="String" visibility="public"/>
+        <Method name="setPlaca" returnType="void" visibility="public">
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="getModelo" returnType="String" visibility="public"/>
+        <Method name="setModelo" returnType="void" visibility="public">
+          <Argument type="String" name="modelo"/>
+        </Method>
+        <Method name="setAlugado" returnType="void" visibility="public">
+          <Argument type="boolean" name="b"/>
+        </Method>
+        <Method name="getAlugado" returnType="boolean" visibility="public"/>
+        <Method name="getCor" returnType="String" visibility="public"/>
+        <Method name="setCor" returnType="void" visibility="public">
+          <Argument type="String" name="cor"/>
+        </Method>
+        <Method name="getValorLocacao" returnType="Float" visibility="public"/>
+        <Method name="setValorLocacao" returnType="void" visibility="public">
+          <Argument type="Float" name="valorLocacao"/>
+        </Method>
+        <Method name="getEstacaoatual" returnType="int" visibility="public"/>
+        <Method name="setEstacaoatual" returnType="void" visibility="public">
+          <Argument type="int" name="estacaoatual"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ControladorAdministrador" package="Negocio" visibility="public" xPosition="320.0" yPosition="2020.0">
+      <Fields>
+        <Field name="repositorio" type="RepositorioAdministrador" visibility="private"/>
+        <Field name="idAdministrador" type="long" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="cadastrarAdministrador" returnType="void" visibility="public">
+          <Argument type="Administrador" name="adm"/>
+        </Method>
+        <Method name="procurar" returnType="Administrador" visibility="public">
+          <Argument type="String" name="cpf"/>
+        </Method>
+        <Method name="alterar" returnType="void" visibility="public">
+          <Argument type="Administrador" name="adm"/>
+        </Method>
+        <Method name="existe" returnType="boolean" visibility="public">
+          <Argument type="String" name="cpf"/>
+        </Method>
+        <Method name="excluir" returnType="void" visibility="public">
+          <Argument type="String" name="cpf"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ControladorCliente" package="Negocio" visibility="public" xPosition="620.0" yPosition="2020.0">
+      <Fields>
+        <Field name="repositorio" type="RepositorioCliente" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="cadastrarCliente" returnType="void" visibility="public">
+          <Argument type="Cliente" name="c"/>
+        </Method>
+        <Method name="existe" returnType="boolean" visibility="public">
+          <Argument type="String" name="cpf"/>
+        </Method>
+        <Method name="procurar" returnType="Cliente" visibility="public">
+          <Argument type="String" name="cpf"/>
+        </Method>
+        <Method name="excluirCliente" returnType="void" visibility="public">
+          <Argument type="String" name="cpf"/>
+        </Method>
+        <Method name="ListarClientes" returnType="List&lt;Cliente&gt;" visibility="public"/>
+        <Method name="alterar" returnType="void" visibility="public">
+          <Argument type="Cliente" name="cliente"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ControladorEstacao" package="Negocio" visibility="public" xPosition="920.0" yPosition="2020.0">
+      <Fields>
+        <Field name="repositorio" type="RepositorioEstacao" visibility="private"/>
+        <Field name="idEstacao" type="int" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="cadastrar" returnType="void" visibility="public">
+          <Argument type="Estacao" name="estacao"/>
+          <Argument type="int" name="capacidade"/>
+        </Method>
+        <Method name="existe" returnType="boolean" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="procurar" returnType="Estacao" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="excluir" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="retornarEstacao" returnType="Estacao" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="alterarCapacidade" returnType="void" visibility="public">
+          <Argument type="int" name="capacidade"/>
+        </Method>
+        <Method name="alterar" returnType="void" visibility="public">
+          <Argument type="Estacao" name="estacao"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ControladorLocacao" package="Negocio" visibility="public" xPosition="1220.0" yPosition="2020.0">
+      <Fields>
+        <Field name="repositorio" type="RepositorioLocacao" visibility="private"/>
+        <Field name="cliente" type="ControladorCliente" visibility="private"/>
+        <Field name="estacao" type="ControladorEstacao" visibility="private"/>
+        <Field name="veiculo" type="ControladorVeiculo" visibility="private"/>
+        <Field name="idAluguel" type="int" visibility="private" isStatic="true"/>
+        <Field name="listaAlugueis" type="List&lt;Locacao&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="cadastrar" returnType="void" visibility="public">
+          <Argument type="Locacao" name="l"/>
+        </Method>
+        <Method name="cadastrar" returnType="void" visibility="public">
+          <Argument type="String" name="cpf"/>
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="AlugarVeiculo" returnType="void" visibility="public">
+          <Argument type="String" name="CPF"/>
+          <Argument type="int" name="CodigoEstacao"/>
+          <Argument type="String" name="placa"/>
+          <Argument type="Calendar" name="dataDevolucao"/>
+        </Method>
+        <Method name="devolverVeiculo" returnType="void" visibility="public">
+          <Argument type="String" name="CPF"/>
+          <Argument type="String" name="Placa"/>
+          <Argument type="int" name="CodigoEstacao"/>
+        </Method>
+        <Method name="calcularAluguel" returnType="float" visibility="public">
+          <Argument type="Locacao" name="l"/>
+        </Method>
+        <Method name="calcularMulta" returnType="float" visibility="public">
+          <Argument type="Locacao" name="l"/>
+        </Method>
+        <Method name="exibirLocacoesAtivas" returnType="List&lt;Locacao&gt;" visibility="public"/>
+        <Method name="exibirLocacoesComMulta" returnType="List&lt;Locacao&gt;" visibility="public"/>
+        <Method name="exibirLocacoesFinalizadas" returnType="List&lt;Locacao&gt;" visibility="public"/>
+        <Method name="aluguelPendente" returnType="boolean" visibility="private">
+          <Argument type="String" name="cpf"/>
+        </Method>
+        <Method name="verificaMulta" returnType="boolean" visibility="public">
+          <Argument type="Locacao" name="l"/>
+        </Method>
+        <Method name="existe" returnType="boolean" visibility="public">
+          <Argument type="String" name="cpf"/>
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="excluir" returnType="void" visibility="public">
+          <Argument type="String" name="cpf"/>
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="procurar" returnType="Locacao" visibility="public">
+          <Argument type="String" name="cpf"/>
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="procurar" returnType="Locacao" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="procurarAluguelFinalizado" returnType="Locacao" visibility="public">
+          <Argument type="String" name="CPF"/>
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="AlterarLocacao" returnType="void" visibility="public">
+          <Argument type="String" name="Cpf"/>
+          <Argument type="String" name="placa"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ControladorVeiculo" package="Negocio" visibility="public" xPosition="1520.0" yPosition="2020.0">
+      <Fields>
+        <Field name="estacao" type="ControladorEstacao" visibility="private"/>
+        <Field name="repositorio" type="RepositorioVeiculo" visibility="private"/>
+        <Field name="repositorioE" type="RepositorioEstacao" visibility="private"/>
+        <Field name="idVeiculo" type="int" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="cadastrar" returnType="void" visibility="public">
+          <Argument type="Veiculo" name="veiculo"/>
+          <Argument type="int" name="CodEstacao"/>
+        </Method>
+        <Method name="procurar" returnType="Veiculo" visibility="public">
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="removercarro" returnType="void" visibility="public">
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="existe" returnType="boolean" visibility="public">
+          <Argument type="String" name="placa"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Fachada" package="Negocio" visibility="public" xPosition="1820.0" yPosition="2020.0">
+      <Fields>
+        <Field name="adm" type="ControladorAdministrador" visibility="private"/>
+        <Field name="cliente" type="ControladorCliente" visibility="private"/>
+        <Field name="locacao" type="ControladorLocacao" visibility="private"/>
+        <Field name="estacao" type="ControladorEstacao" visibility="private"/>
+        <Field name="veiculo" type="ControladorVeiculo" visibility="private"/>
+        <Field name="instance" type="Fachada" visibility="public" isStatic="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getInstance" returnType="Fachada" visibility="public" isStatic="true"/>
+        <Method name="aAlugarVeiculo" returnType="void" visibility="public">
+          <Argument type="String" name="CPF"/>
+          <Argument type="int" name="CodigoEstacao"/>
+          <Argument type="String" name="placa"/>
+          <Argument type="Calendar" name="dataDevolucao"/>
+        </Method>
+        <Method name="devolverVeiculo" returnType="void" visibility="public">
+          <Argument type="String" name="CPF"/>
+          <Argument type="String" name="Placa"/>
+          <Argument type="int" name="CodigoEstacao"/>
+        </Method>
+        <Method name="cadastrarAdministrador" returnType="void" visibility="public">
+          <Argument type="Administrador" name="adm"/>
+        </Method>
+        <Method name="procurarAdministrador" returnType="Administrador" visibility="public">
+          <Argument type="String" name="cpf"/>
+        </Method>
+        <Method name="alterarAdministrador" returnType="void" visibility="public">
+          <Argument type="Administrador" name="adm"/>
+        </Method>
+        <Method name="existeAdministrador" returnType="boolean" visibility="public">
+          <Argument type="String" name="cpf"/>
+        </Method>
+        <Method name="excluirAdministrador" returnType="void" visibility="public">
+          <Argument type="String" name="cpf"/>
+        </Method>
+        <Method name="cadastrarLocacao" returnType="void" visibility="public">
+          <Argument type="Locacao" name="locacao"/>
+        </Method>
+        <Method name="cadastrarLocacao" returnType="void" visibility="public">
+          <Argument type="String" name="cpf"/>
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="procurarLocacao" returnType="Locacao" visibility="public">
+          <Argument type="String" name="cpf"/>
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="procurarLocacaoFinalizada" returnType="Locacao" visibility="public">
+          <Argument type="String" name="cpf"/>
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="procurarLocacao" returnType="Locacao" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="alterarLocacao" returnType="void" visibility="public">
+          <Argument type="String" name="cpf"/>
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="LocacaoExiste" returnType="boolean" visibility="public">
+          <Argument type="String" name="cpf"/>
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="excluirLocacao" returnType="void" visibility="public">
+          <Argument type="String" name="cpf"/>
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="exibirALuguelComMulta" returnType="List&lt;Locacao&gt;" visibility="public"/>
+        <Method name="exibirLocacoesFinalizadas" returnType="List&lt;Locacao&gt;" visibility="public"/>
+        <Method name="exibirALuguelAtivo" returnType="List&lt;Locacao&gt;" visibility="public"/>
+        <Method name="cadastrarCliente" returnType="void" visibility="public">
+          <Argument type="Cliente" name="cliente"/>
+        </Method>
+        <Method name="procurarCliente" returnType="Cliente" visibility="public">
+          <Argument type="String" name="cpf"/>
+        </Method>
+        <Method name="alterarCliente" returnType="void" visibility="public">
+          <Argument type="Cliente" name="cliente"/>
+        </Method>
+        <Method name="existeCliente" returnType="boolean" visibility="public">
+          <Argument type="String" name="cpf"/>
+        </Method>
+        <Method name="excluirCliente" returnType="void" visibility="public">
+          <Argument type="String" name="cpf"/>
+        </Method>
+        <Method name="exibirClientes" returnType="List&lt;Cliente&gt;" visibility="public"/>
+        <Method name="cadastrarVeiculo" returnType="void" visibility="public">
+          <Argument type="Veiculo" name="veiculo"/>
+          <Argument type="int" name="CodigoEstacao"/>
+        </Method>
+        <Method name="ProcurarVeiculo" returnType="Veiculo" visibility="public">
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="RemoverVeiculo" returnType="void" visibility="public">
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="existeVeiculo" returnType="boolean" visibility="public">
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="cadastrarEstacao" returnType="void" visibility="public">
+          <Argument type="Estacao" name="estacao"/>
+          <Argument type="int" name="capacidade"/>
+        </Method>
+        <Method name="procurarEstacao" returnType="Estacao" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="alterarEstacao" returnType="void" visibility="public">
+          <Argument type="Estacao" name="estacao"/>
+        </Method>
+        <Method name="excluirEstacao" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="InterfaceFachada" package="Negocio" visibility="public" xPosition="2120.0" yPosition="2020.0">
+      <Methods>
+        <Method name="aAlugarVeiculo" returnType="void" visibility="public">
+          <Argument type="String" name="CPF"/>
+          <Argument type="int" name="CodigoEstacao"/>
+          <Argument type="String" name="placa"/>
+          <Argument type="Calendar" name="dataDevolucao"/>
+        </Method>
+        <Method name="devolverVeiculo" returnType="void" visibility="public">
+          <Argument type="String" name="CPF"/>
+          <Argument type="String" name="Placa"/>
+          <Argument type="int" name="CodigoEstacao"/>
+        </Method>
+        <Method name="cadastrarAdministrador" returnType="void" visibility="public">
+          <Argument type="Administrador" name="adm"/>
+        </Method>
+        <Method name="procurarAdministrador" returnType="Administrador" visibility="public">
+          <Argument type="String" name="cpf"/>
+        </Method>
+        <Method name="alterarAdministrador" returnType="void" visibility="public">
+          <Argument type="Administrador" name="adm"/>
+        </Method>
+        <Method name="existeAdministrador" returnType="boolean" visibility="public">
+          <Argument type="String" name="cpf"/>
+        </Method>
+        <Method name="excluirAdministrador" returnType="void" visibility="public">
+          <Argument type="String" name="cpf"/>
+        </Method>
+        <Method name="cadastrarLocacao" returnType="void" visibility="public">
+          <Argument type="Locacao" name="locacao"/>
+        </Method>
+        <Method name="cadastrarLocacao" returnType="void" visibility="public">
+          <Argument type="String" name="cpf"/>
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="procurarLocacao" returnType="Locacao" visibility="public">
+          <Argument type="String" name="cpf"/>
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="procurarLocacaoFinalizada" returnType="Locacao" visibility="public">
+          <Argument type="String" name="cpf"/>
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="procurarLocacao" returnType="Locacao" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="alterarLocacao" returnType="void" visibility="public">
+          <Argument type="String" name="cpf"/>
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="LocacaoExiste" returnType="boolean" visibility="public">
+          <Argument type="String" name="cpf"/>
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="excluirLocacao" returnType="void" visibility="public">
+          <Argument type="String" name="cpf"/>
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="exibirALuguelComMulta" returnType="List&lt;Locacao&gt;" visibility="public"/>
+        <Method name="exibirLocacoesFinalizadas" returnType="List&lt;Locacao&gt;" visibility="public"/>
+        <Method name="exibirALuguelAtivo" returnType="List&lt;Locacao&gt;" visibility="public"/>
+        <Method name="cadastrarCliente" returnType="void" visibility="public">
+          <Argument type="Cliente" name="cliente"/>
+        </Method>
+        <Method name="procurarCliente" returnType="Cliente" visibility="public">
+          <Argument type="String" name="cpf"/>
+        </Method>
+        <Method name="alterarCliente" returnType="void" visibility="public">
+          <Argument type="Cliente" name="cliente"/>
+        </Method>
+        <Method name="existeCliente" returnType="boolean" visibility="public">
+          <Argument type="String" name="cpf"/>
+        </Method>
+        <Method name="excluirCliente" returnType="void" visibility="public">
+          <Argument type="String" name="cpf"/>
+        </Method>
+        <Method name="exibirClientes" returnType="List&lt;Cliente&gt;" visibility="public"/>
+        <Method name="cadastrarVeiculo" returnType="void" visibility="public">
+          <Argument type="Veiculo" name="veiculo"/>
+          <Argument type="int" name="CodigoEstacao"/>
+        </Method>
+        <Method name="ProcurarVeiculo" returnType="Veiculo" visibility="public">
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="RemoverVeiculo" returnType="void" visibility="public">
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="existeVeiculo" returnType="boolean" visibility="public">
+          <Argument type="String" name="placa"/>
+        </Method>
+        <Method name="cadastrarEstacao" returnType="void" visibility="public">
+          <Argument type="Estacao" name="estacao"/>
+          <Argument type="int" name="capacidade"/>
+        </Method>
+        <Method name="procurarEstacao" returnType="Estacao" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="alterarEstacao" returnType="void" visibility="public">
+          <Argument type="Estacao" name="estacao"/>
+        </Method>
+        <Method name="excluirEstacao" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="Negocio.ControladorVeiculo" target="Negocio.bean.Veiculo" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Negocio.ControladorLocacao" target="Negocio.bean.Locacao" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Negocio.Fachada" target="Negocio.bean.Locacao" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Negocio.bean.Estacao" target="Negocio.bean.Veiculo" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="dados.RepositorioVeiculo" target="Negocio.bean.Veiculo" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="carros" source="Negocio.bean.Estacao" target="Negocio.bean.Veiculo" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Negocio.InterfaceFachada" target="Negocio.bean.Estacao" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="dados.InterfaceRepositorioAdministrador" target="Negocio.bean.Administrador" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="dados.InterfaceRepositorioCliente" target="Negocio.bean.Cliente" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Negocio.bean.Locacao" target="Negocio.bean.Estacao" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="repositorio" source="Negocio.ControladorVeiculo" target="Negocio.bean.Veiculo" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="veiculo" source="Negocio.Fachada" target="Negocio.ControladorVeiculo" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="dados.RepositorioLocacao" target="dados.InterfaceRepositorioLocacao"/>
+    <HasRelation name="repositorio" source="Negocio.ControladorEstacao" target="Negocio.bean.Estacao" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="locacao" source="Negocio.Fachada" target="Negocio.ControladorLocacao" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="dados.RepositorioLocacao" target="Negocio.bean.Locacao" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Negocio.Fachada" target="Negocio.Fachada" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="dados.RepositorioCliente" target="Negocio.bean.Cliente" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="dados.RepositorioAdministrador" target="Negocio.bean.Administrador" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="instance" source="Negocio.Fachada" target="Negocio.Fachada" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Negocio.Fachada" target="Negocio.bean.Administrador" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="veiculo" source="Negocio.ControladorLocacao" target="Negocio.ControladorVeiculo" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="adm" source="Negocio.Fachada" target="Negocio.ControladorAdministrador" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="dados.InterfaceRepositorioVeiculo" target="Negocio.bean.Veiculo" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="repositorio" source="Negocio.ControladorAdministrador" target="Negocio.bean.Administrador" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="cliente" source="Negocio.Fachada" target="Negocio.ControladorCliente" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Negocio.bean.Cliente" target="Negocio.bean.Usuario"/>
+    <HasRelation name="estacao" source="Negocio.ControladorVeiculo" target="Negocio.ControladorEstacao" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="cliente" source="Negocio.bean.Locacao" target="Negocio.bean.Cliente" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Negocio.InterfaceFachada" target="Negocio.bean.Veiculo" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Negocio.InterfaceFachada" target="Negocio.bean.Cliente" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="clientes" source="dados.RepositorioCliente" target="Negocio.bean.Cliente" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Cliente&gt;"/>
+    <HasRelation name="estacoes" source="dados.RepositorioEstacao" target="Negocio.bean.Estacao" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Estacao&gt;"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="dados.RepositorioCliente" target="dados.InterfaceRepositorioCliente"/>
+    <UseRelation source="Negocio.ControladorCliente" target="Negocio.bean.Cliente" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="veiculos" source="dados.RepositorioVeiculo" target="Negocio.bean.Veiculo" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Veiculo&gt;"/>
+    <HasRelation name="repositorioE" source="Negocio.ControladorVeiculo" target="Negocio.bean.Estacao" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Negocio.bean.Administrador" target="Negocio.bean.Usuario"/>
+    <UseRelation source="Negocio.InterfaceFachada" target="Negocio.bean.Locacao" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="carro" source="Negocio.bean.Locacao" target="Negocio.bean.Veiculo" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="repositorio" source="Negocio.ControladorLocacao" target="Negocio.bean.Locacao" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="dados.RepositorioVeiculo" target="dados.InterfaceRepositorioVeiculo"/>
+    <UseRelation source="Negocio.bean.Locacao" target="Negocio.bean.Locacao" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="repositorio" source="Negocio.ControladorCliente" target="Negocio.bean.Cliente" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Negocio.ControladorEstacao" target="Negocio.bean.Estacao" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Negocio.bean.Locacao" target="Negocio.bean.Cliente" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="dados.RepositorioEstacao" target="Negocio.bean.Estacao" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Negocio.Fachada" target="Negocio.bean.Estacao" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="administradores" source="dados.RepositorioAdministrador" target="Negocio.bean.Administrador" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Administrador&gt;"/>
+    <HasRelation name="EstacaoFim" source="Negocio.bean.Locacao" target="Negocio.bean.Estacao" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="EstacaoInicio" source="Negocio.bean.Locacao" target="Negocio.bean.Estacao" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Negocio.bean.Locacao" target="Negocio.bean.Veiculo" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="estacao" source="Negocio.ControladorLocacao" target="Negocio.ControladorEstacao" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Negocio.Fachada" target="Negocio.bean.Veiculo" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="locacoes" source="dados.RepositorioLocacao" target="Negocio.bean.Locacao" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Locacao&gt;"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Negocio.Fachada" target="Negocio.InterfaceFachada"/>
+    <UseRelation source="Negocio.Fachada" target="Negocio.bean.Cliente" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Negocio.InterfaceFachada" target="Negocio.bean.Administrador" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="dados.InterfaceRepositorioLocacao" target="Negocio.bean.Locacao" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="estacao" source="Negocio.Fachada" target="Negocio.ControladorEstacao" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="cliente" source="Negocio.ControladorLocacao" target="Negocio.ControladorCliente" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="listaAlugueis" source="Negocio.ControladorLocacao" target="Negocio.bean.Locacao" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Locacao&gt;"/>
+    <UseRelation source="dados.InterfaceRepositorioEstacao" target="Negocio.bean.Estacao" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="dados.RepositorioAdministrador" target="dados.InterfaceRepositorioAdministrador"/>
+    <UseRelation source="Negocio.ControladorAdministrador" target="Negocio.bean.Administrador" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

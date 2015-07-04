@@ -1,10 +1,10 @@
 package Negocio;
 
+import Dados.RepositorioAdministrador;
+import Exceptions.AdministradorJaExistenteException;
+import Exceptions.AdministradorNaoExisteException;
+import Exceptions.RepositorioException;
 import Negocio.bean.Administrador;
-import dados.RepositorioAdministrador;
-import exceptions.AdministradorJaExistenteException;
-import exceptions.AdministradorNaoExisteException;
-import exceptions.RepositorioException;
 
 public class ControladorAdministrador 
 {

@@ -4,26 +4,32 @@ import java.io.Serializable;
 
 public class Administrador extends Usuario implements Serializable
 {
-
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 	private long id;
 	private String login;
 	private String senha;
 
-	public Administrador(String nome, String cpf, long id, String login) 
+	public Administrador(String nome, String cpf, long id, String login,String senha) 
 	{
 		super(nome, cpf);
-		this.setId(id);
-		this.setLogin(login);
+		this.id = id;
+		this.login = login;
+		this.senha = senha;		
 	}
 
-	public Administrador(String nome, String cpf) {
+	public Administrador(String nome, String cpf,String senha)
+	{
 		super(nome, cpf);
 	}
 
-	public Administrador(String nome, String cpf, String login) {
+	public Administrador(String nome, String cpf, String login,String senha)
+	{
 		super(nome, cpf);
 		this.login = login;
+		this.senha = senha;
 	}
 
 	public Administrador(long id, String login) {
@@ -79,5 +85,7 @@ public class Administrador extends Usuario implements Serializable
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
+	
 
 }

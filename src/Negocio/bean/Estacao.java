@@ -1,5 +1,6 @@
 package Negocio.bean;
 
+
 import java.io.Serializable;
 
 

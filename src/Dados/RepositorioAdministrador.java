@@ -1,4 +1,4 @@
-package dados;
+package Dados;
 
 import java.io.EOFException;
 import java.io.File;
@@ -10,9 +10,9 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import Exceptions.AdministradorNaoExisteException;
+import Exceptions.RepositorioException;
 import Negocio.bean.Administrador;
-import exceptions.AdministradorNaoExisteException;
-import exceptions.RepositorioException;
 
 
 

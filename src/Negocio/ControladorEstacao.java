@@ -1,11 +1,24 @@
 package Negocio;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
+
+
+
+
+
+
+
+import Dados.RepositorioEstacao;
+import Exceptions.ClienteJaExisteException;
+import Exceptions.EstacaoJaExisteException;
+import Exceptions.EstacaoNaoExisteException;
+import Exceptions.EstacoesNaoExistemException;
+import Exceptions.RepositorioException;
 import Negocio.bean.Estacao;
-import dados.RepositorioEstacao;
-import exceptions.ClienteJaExisteException;
-import exceptions.EstacaoJaExisteException;
-import exceptions.EstacaoNaoExisteException;
-import exceptions.RepositorioException;
+import Negocio.bean.Veiculo;
 
 public class ControladorEstacao 
 {
@@ -17,9 +30,19 @@ public class ControladorEstacao
 		this.repositorio = new RepositorioEstacao();
 	}
 	
-	public void cadastrar(Estacao estacao, int capacidade) throws EstacaoJaExisteException 
+	public void cadastrar(Estacao estacao, int capacidade) throws EstacaoJaExisteException, EstacoesNaoExistemException 
 	{
-		estacao.setCod(ControladorEstacao.idEstacao);
+		int cod;
+		if(this.repositorio.ListarEstacoes().size() == 0)
+		{
+			cod = 1;
+		}	
+		else
+		{
+			cod = this.repositorio.ListarEstacoes().size();	
+		}
+		
+		estacao.setCod(cod);
 		estacao.setCapacidade(capacidade);
 		boolean resposta = this.existe(estacao.getCod());
 
@@ -30,7 +53,7 @@ public class ControladorEstacao
 		}	
 		else throw new EstacaoJaExisteException();
 	}
-
+    
 	public boolean existe(int id)
 	{
 		return this.repositorio.existe(id);
@@ -38,6 +61,10 @@ public class ControladorEstacao
 	public Estacao procurar(int id) throws EstacaoNaoExisteException
 	{
 		return this.repositorio.procurar(id);
+	}
+	public Estacao procurar(String s) throws EstacaoNaoExisteException
+	{
+		return this.repositorio.ProcurarEstacao(s);
 	}
 	public void excluir(int id) throws EstacaoNaoExisteException
 	{
@@ -58,4 +85,10 @@ public class ControladorEstacao
       if (resposta == false && estacao != null)
 	  this.repositorio.alterarEstacao(estacao);
     }
+	public List<Estacao> ListarEstacoes() throws EstacoesNaoExistemException
+	{
+		return this.repositorio.ListarEstacoes();
+		
+	}
+
 }

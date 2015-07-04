@@ -3,26 +3,28 @@ package Negocio;
 import java.util.Calendar;
 import java.util.List;
 
+import Exceptions.AdministradorJaExistenteException;
+import Exceptions.AdministradorNaoExisteException;
+import Exceptions.AluguelComMultaInexistenteException;
+import Exceptions.ClienteJaExisteException;
+import Exceptions.ClienteNaoExisteException;
+import Exceptions.ClientesNaoCadastradosException;
+import Exceptions.EstacaoJaExisteException;
+import Exceptions.EstacaoNaoExisteException;
+import Exceptions.EstacoesNaoExistemException;
+import Exceptions.LocacaoNaoExisteException;
+import Exceptions.LocacaoPendenteException;
+import Exceptions.LocacoesNaoCadastradasException;
+import Exceptions.RepositorioException;
+import Exceptions.VeiculoAlugadoException;
+import Exceptions.VeiculoJaExisteException;
+import Exceptions.VeiculoNaoExisteException;
+import Exceptions.VeiculosAlugadosException;
 import Negocio.bean.Administrador;
 import Negocio.bean.Cliente;
 import Negocio.bean.Estacao;
 import Negocio.bean.Locacao;
 import Negocio.bean.Veiculo;
-import exceptions.AdministradorJaExistenteException;
-import exceptions.AdministradorNaoExisteException;
-import exceptions.AluguelComMultaInexistenteException;
-import exceptions.ClienteJaExisteException;
-import exceptions.ClienteNaoExisteException;
-import exceptions.ClientesNaoCadastradosException;
-import exceptions.EstacaoJaExisteException;
-import exceptions.EstacaoNaoExisteException;
-import exceptions.LocacaoNaoExisteException;
-import exceptions.LocacaoPendenteException;
-import exceptions.LocacoesNaoCadastradasException;
-import exceptions.RepositorioException;
-import exceptions.VeiculoAlugadoException;
-import exceptions.VeiculoJaExisteException;
-import exceptions.VeiculoNaoExisteException;
 
 
 
@@ -78,17 +80,23 @@ public interface InterfaceFachada
 	
 	public void cadastrarVeiculo(Veiculo veiculo, int CodigoEstacao)throws VeiculoNaoExisteException, VeiculoJaExisteException, EstacaoNaoExisteException;
 	
+	public List<Veiculo> listarVeiculosDisponiveis() throws VeiculosAlugadosException;
+	
 	public Veiculo ProcurarVeiculo(String placa)throws VeiculoNaoExisteException,EstacaoNaoExisteException;
 	
 	public void RemoverVeiculo(String placa)throws VeiculoNaoExisteException,EstacaoNaoExisteException;
 	
 	public boolean existeVeiculo(String placa)throws VeiculoNaoExisteException;
 	
-	public void cadastrarEstacao(Estacao estacao, int capacidade)throws RepositorioException,EstacaoJaExisteException,EstacaoNaoExisteException;
+	public void cadastrarEstacao(Estacao estacao, int capacidade)throws RepositorioException,EstacaoJaExisteException,EstacaoNaoExisteException,EstacoesNaoExistemException;
 	
 	public Estacao procurarEstacao(int id) throws EstacaoNaoExisteException;
 	
+	 public Estacao procurarEstacao(String s) throws EstacaoNaoExisteException;
+	
 	public void alterarEstacao(Estacao estacao) throws RepositorioException,EstacaoNaoExisteException;
+	
+	public List<Estacao> ListarEstacoes()throws EstacoesNaoExistemException;
 	
 	public void excluirEstacao(int id) throws RepositorioException,EstacaoNaoExisteException;
 }

@@ -12,14 +12,16 @@ public class Veiculo implements Serializable
 	private int id;
 	private String placa;
 	private String modelo;
+    private String Marca;
 	private String cor;
-	private float motor;
+	private String motor;
 	private int Estacaoatual;
-	private Float valorLocacao;
+	private float valorLocacao;
 	private boolean alugado = false;
 	
-	public Veiculo(String placa, String modelo,String cor,Float valorLocacao,int EstacaoAtual)
+	public Veiculo(String placa, String modelo,String cor,String motor,float valorLocacao,int EstacaoAtual)
 	{
+		this.setMotor(motor);
 		this.placa = placa;
 		this.modelo = modelo;
 		this.cor = cor;
@@ -46,10 +48,19 @@ public class Veiculo implements Serializable
 	public String getModelo() {
 		return modelo;
 	}
+         
 
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
 	}
+        public String getMarca()
+        {
+          return this.Marca;
+        }
+        public void setMarca(String marca)
+        {
+            this.Marca = marca;
+        }
 	public void setAlugado(boolean b)
 	{
 		this.alugado = b;
@@ -91,5 +102,13 @@ public class Veiculo implements Serializable
 		C += "Modelo: "+ this.modelo; 
 		C += "Cor: " +this.cor;
 		return C;
+	}
+
+	public String getMotor() {
+		return motor;
+	}
+
+	public void setMotor(String motor) {
+		this.motor = motor;
 	}
 }

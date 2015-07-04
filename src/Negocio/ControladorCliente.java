@@ -2,12 +2,12 @@ package Negocio;
 
 import java.util.List;
 
+import Dados.RepositorioCliente;
+import Exceptions.ClienteJaExisteException;
+import Exceptions.ClienteNaoExisteException;
+import Exceptions.ClientesNaoCadastradosException;
+import Exceptions.RepositorioException;
 import Negocio.bean.Cliente;
-import dados.RepositorioCliente;
-import exceptions.ClienteJaExisteException;
-import exceptions.ClienteNaoExisteException;
-import exceptions.ClientesNaoCadastradosException;
-import exceptions.RepositorioException;
 
 
 public class ControladorCliente

@@ -1,4 +1,4 @@
-package dados;
+package Dados;
 import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
@@ -9,8 +9,14 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import Exceptions.ClienteJaExisteException;
+import Exceptions.EstacaoNaoExisteException;
+import Exceptions.LocacoesNaoCadastradasException;
+import Exceptions.VeiculoNaoExisteException;
+import Exceptions.VeiculosAlugadosException;
+import Negocio.bean.Estacao;
+import Negocio.bean.Locacao;
 import Negocio.bean.Veiculo;
-import exceptions.VeiculoNaoExisteException;
 
 public class RepositorioVeiculo  implements InterfaceRepositorioVeiculo
 {
@@ -67,7 +73,7 @@ public class RepositorioVeiculo  implements InterfaceRepositorioVeiculo
 	  catch (ClassNotFoundException e) 
 	  {
 		 e.printStackTrace();
-		 //throw new RepositorioException("Erro na leitura do objeto. Objeto "+ (new RepositorioCliente()).getClass()+ " não encontrado.");
+		 //throw new RepositorioException("Erro na leitura do objeto. Objeto "+ (new RepositorioCliente()).getClass()+ " nï¿½o encontrado.");
 	  } 
 	  finally 
 	  {
@@ -124,7 +130,7 @@ public class RepositorioVeiculo  implements InterfaceRepositorioVeiculo
 			{
 				indice = i;
 			}
-			// tratar um exceção do tipo se o obj não foi encontrada
+			
 		}
 		return indice;
 	}
@@ -152,6 +158,26 @@ public class RepositorioVeiculo  implements InterfaceRepositorioVeiculo
 		if (indice != -1)
 			return existe = true;
 		return existe;
+	}
+	public List<Veiculo> ListarVeiculosDisponiveis() throws VeiculosAlugadosException
+	{
+		List<Veiculo> veiculosdisponiveis = new ArrayList<Veiculo>();
+		
+		   for (int i = 0; i < veiculos.size(); i++) 
+		   {
+			 if (veiculos.get(i).getAlugado() == false) 
+			 {
+				  veiculosdisponiveis.add(veiculos.get(i));
+			 }
+		   }
+		   if(veiculosdisponiveis.isEmpty())
+		   {
+			   throw new VeiculosAlugadosException("nao Existem veiculos disponï¿½veis");	
+		   }
+		   else
+		   {   
+	         return veiculosdisponiveis;
+		   }
 	}
 }
 
